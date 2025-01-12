@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			href="https://www.gosite.com/hubfs/Vector-2.png"
+			type="image/x-icon" />
+		<title>Fiverr</title>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f5f5f5;
+			}
+
+			.header {
+				background-color: white;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				padding: 15px 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: sticky;
+				top: 0;
+				z-index: 100;
+			}
+
+			.container {
+				max-width: 1400px;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.logo img {
+				height: 40px;
+				cursor: pointer;
+			}
+
+			.search-bar {
+				display: flex;
+				margin: 0 20px;
+				width: 500px;
+				position: relative;
+			}
+
+			.search-bar input {
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #1dbf73;
+				border-radius: 5px 0 0 5px;
+				outline: none;
+			}
+
+			.search-bar button {
+				padding: 10px 20px;
+				background-color: #1dbf73;
+				border: none;
+				border-radius: 0 5px 5px 0;
+				color: white;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
+
+			.search-bar button:hover {
+				background-color: #17a566;
+			}
+
+			.user-options {
+				display: flex;
+				align-items: center;
+			}
+
+			.user-options2 {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+			}
+
+			.orders,
+			.switch-to-seller {
+				background-color: transparent;
+				border: 1px solid #1dbf73;
+				color: #1dbf73;
+				padding: 8px 15px;
+				border-radius: 5px;
+				cursor: pointer;
+				margin-right: 15px;
+				transition: background-color 0.3s ease;
+			}
+
+			.orders:hover,
+			.switch-to-seller:hover {
+				background-color: #1dbf73;
+				color: white;
+			}
+
+			.avatar {
+				width: 35px;
+				height: 35px;
+				border-radius: 50%;
+				overflow: hidden;
+				margin-right: 15px;
+				cursor: pointer;
+			}
+
+			.avatar img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.currency {
+				background-color: white;
+				color: #1dbf73;
+				font-weight: bold;
+				padding: 8px 15px;
+				margin-right: 15px;
+				border: 1px solid #1dbf73;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			body,
+			html {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+				background-color: #f9f9f9;
+			}
+
+			.container-search {
+				width: 90%;
+				margin: 0 auto;
+				padding: 20px;
+			}
+
+			h1 {
+				font-size: 32px;
+				margin-bottom: 20px;
+				margin-top: 20px;
+			}
+
+			.highlight {
+				font-weight: bold;
+				color: #333;
+			}
+
+			.tabs {
+				display: flex;
+				gap: 10px;
+				margin-bottom: 20px;
+			}
+
+			.tab {
+				padding: 10px 20px;
+				border: none;
+				cursor: pointer;
+				background-color: #f5f5f5;
+				border-radius: 5px;
+			}
+
+			.tab.active {
+				border: 2px solid #1dbf73;
+				position: relative;
+			}
+
+			.tab.active::after {
+				content: "New";
+				color: #fff;
+				background-color: #1dbf73;
+				border-radius: 3px;
+				padding: 2px 5px;
+				font-size: 12px;
+				position: absolute;
+				top: -5px;
+				right: -10px;
+			}
+
+			.filter-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				margin-bottom: 20px;
+			}
+
+			.filter-btn {
+				padding: 10px 15px;
+				border: 1px solid #ddd;
+				background-color: #fff;
+				cursor: pointer;
+				border-radius: 5px;
+				position: relative;
+				transition: background-color 0.3s ease;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.filter-btn:hover {
+				background-color: #f0f0f0;
+			}
+
+			.filter-btn .dropdown-icon {
+				margin-left: 5px;
+				font-size: 20px;
+			}
+
+			.toggle-container {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+			}
+
+			.toggle-label {
+				font-size: 14px;
+			}
+
+			.toggle {
+				appearance: none;
+				width: 40px;
+				height: 20px;
+				background: #ddd;
+				border-radius: 10px;
+				position: relative;
+				cursor: pointer;
+				outline: none;
+			}
+
+			.toggle:checked {
+				background: #1dbf73;
+			}
+
+			.toggle:checked::after {
+				left: 20px;
+			}
+
+			.toggle::after {
+				content: "";
+				width: 18px;
+				height: 18px;
+				background: #fff;
+				border-radius: 50%;
+				position: absolute;
+				top: 1px;
+				left: 2px;
+				transition: 0.3s;
+			}
+
+			@media (max-width: 768px) {
+				.tabs,
+				.filter-container {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+
+			body,
+			html {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+				background-color: #f9f9f9;
+			}
+
+			.cards-container {
+				display: flex;
+				justify-content: center;
+				padding: 20px;
+				flex-wrap: wrap;
+				gap: 20px;
+				margin-bottom: 50px;
+			}
+
+			.link-as-div {
+				text-decoration: none;
+				color: #000;
+			}
+
+			.card {
+				border: 1px solid #eaeaea;
+				border-radius: 12px;
+				width: 430px;
+				font-family: "Arial", sans-serif;
+				padding: 25px;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+				transition: box-shadow 0.3s ease;
+				cursor: pointer;
+			}
+
+			.card:hover {
+				box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+			}
+
+			.card-header {
+				display: flex;
+				align-items: center;
+				position: relative;
+			}
+
+			.profile-img {
+				border-radius: 50%;
+				width: 70px;
+				height: 70px;
+				object-fit: cover;
+				margin-right: 12px;
+			}
+
+			.header-details {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 3px;
+			}
+
+			.user-name {
+				margin: 0;
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+			.badge {
+				display: inline-block;
+				background: #f5c518;
+				width: 105px;
+				color: #000;
+				padding: 2px 8px;
+				border-radius: 8px;
+				font-size: 12px;
+				margin: 4px 0;
+			}
+
+			.badge-stars {
+				color: #000;
+				font-weight: bold;
+			}
+
+			.languages {
+				margin: 0;
+				font-size: 14px;
+				color: #666666;
+			}
+
+			.favorite-icon {
+				position: absolute;
+				top: 0;
+				right: 0;
+				font-size: 40px;
+				color: #cccccc;
+				cursor: pointer;
+			}
+
+			.favorite-icon:hover {
+				color: #ff6666;
+			}
+
+			.card-body {
+				margin-top: 20px;
+				margin-bottom: 15px;
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+			}
+
+			.job-title {
+				font-size: 18px;
+				font-weight: bold;
+				margin: 0;
+			}
+
+			.description {
+				font-size: 15px;
+				color: #666666;
+				margin-top: 4px;
+			}
+
+			.tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 7px;
+				margin-bottom: 15px;
+			}
+
+			.tag {
+				background-color: #f3f3f3;
+				padding: 5px 10px;
+				border-radius: 15px;
+				font-size: 14px;
+			}
+
+			.project-screens {
+				margin: 10px 0;
+				overflow: hidden;
+				border-radius: 5px;
+				width: 378px;
+				height: 230px;
+			}
+
+			.project-screens img {
+				width: 100%;
+				border-radius: 5px;
+				transition: transform 0.3s ease;
+			}
+
+			.project-screens img:hover {
+				transform: scale(1.1);
+			}
+
+			.card-footer {
+				display: flex;
+				justify-content: space-around;
+				padding-top: 15px;
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+
+			.footer-section {
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.footer-text,
+			.footer-title,
+			.footer-value,
+			.footer-price {
+				margin: 0;
+				color: #555555;
+			}
+
+			.footer-text {
+				font-size: 14px;
+				color: #666;
+			}
+
+			.footer-rating {
+				display: flex;
+				align-items: end;
+				justify-content: center;
+				color: #333;
+				font-size: 16px;
+				color: #222;
+				font-weight: bold;
+			}
+
+			.footer-rating .star {
+				color: #ffd700;
+				margin-right: 4px;
+				font-size: 16px;
+				font-weight: bold;
+				justify-self: center;
+				align-self: center;
+			}
+
+			.footer-value {
+				font-size: 16px;
+				color: #222;
+				font-weight: bold;
+				margin-top: 3px;
+			}
+
+			.footer-price {
+				font-size: 16px;
+				color: #222;
+				font-weight: bold;
+				margin-top: 3px;
+			}
+
+			@media (max-width: 768px) {
+				.cards-container {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container">
+				<div class="logo">
+					<img
+						src="https://freepnglogo.com/images/all_img/1706198346fiverr-logo-transparent.png"
+						alt="Fiverr Logo" />
+				</div>
+				<div class="search-bar">
+					<input type="text" placeholder="Search for services" />
+					<button>Search</button>
+				</div>
+				<div class="user-options">
+					<button class="orders">Orders</button>
+					<button class="switch-to-seller">Switch to Selling</button>
+				</div>
+				<div class="user-options2">
+					<div class="avatar">
+						<img
+							src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+							alt="User Avatar" />
+					</div>
+					<button class="currency">PKR 100,000</button>
+				</div>
+			</div>
+		</header>
+		<div class="container-search">
+			<h1>Results for <span class="highlight">MERN stack development</span></h1>
+			<div class="tabs">
+				<button class="tab active">Freelancers</button>
+				<button class="tab">Services</button>
+			</div>
+			<div class="filter-container">
+				<button class="filter-btn">
+					Profession <span class="dropdown-icon">&#9662;</span>
+				</button>
+				<button class="filter-btn">
+					Skills and expertise <span class="dropdown-icon">&#9662;</span>
+				</button>
+				<button class="filter-btn">
+					Service options <span class="dropdown-icon">&#9662;</span>
+				</button>
+				<button class="filter-btn">
+					Freelancer details <span class="dropdown-icon">&#9662;</span>
+				</button>
+				<button class="filter-btn">
+					Budget <span class="dropdown-icon">&#9662;</span>
+				</button>
+			</div>
+			<div class="toggle-container">
+				<label class="toggle-label">Pro freelancers</label>
+				<input type="checkbox" class="toggle" />
+			</div>
+		</div>
+
+		<div class="cards-container">
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="
+https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+			<a href="./detail-page.html" class="link-as-div card">
+				<div class="card-header">
+					<img
+						src="https://media.licdn.com/dms/image/v2/D5603AQGA2qyd5bzizQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724579744646?e=1741824000&v=beta&t=H5PdLYkhXcy3gnZ9oz9Z_q8MEriwCkZGJO5JLoR3XYU"
+						alt="Profile Picture"
+						class="profile-img" />
+					<div class="header-details">
+						<h2 class="user-name">Muhammad Usman</h2>
+						<span class="badge"
+							>Top Rated <span class="badge-stars">★★★</span></span
+						>
+						<p class="languages">English, Urdu +2</p>
+					</div>
+					<div class="favorite-icon">
+						<span>&#9825;</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<h3 class="job-title">MERN Stack Developer</h3>
+					<p class="description">
+						I am a Full-Stack MERN Developer proficient in MongoDB, Express,
+						React, and Node.js with...
+					</p>
+				</div>
+				<div class="tags">
+					<span class="tag">Highly responsive</span>
+					<span class="tag">Development</span>
+					<span class="tag">Website design</span>
+					<span class="tag">Business</span>
+					<span class="tag">MERN full stack</span>
+					<span class="tag">+20</span>
+				</div>
+				<div class="project-screens">
+					<img
+						src="https://www.rentallscript.com/resources/content/images/2021/09/React--1-.gif"
+						alt="Project 3" />
+				</div>
+
+				<div class="card-footer">
+					<div class="footer-section">
+						<span class="footer-text">1,000 reviews</span>
+						<span class="footer-rating"><span class="star">★</span> 5.0</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Orders</span>
+						<span class="footer-value">1,000</span>
+					</div>
+					<div class="footer-section">
+						<span class="footer-title">Services from</span>
+						<span class="footer-price">PKR 100,000</span>
+					</div>
+				</div>
+			</a>
+		</div>
+	</body>
+</html>
